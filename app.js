@@ -378,6 +378,18 @@ function exportData() {
   URL.revokeObjectURL(url);
 }
 
+function applyTheme(theme) {
+  const nextTheme = theme === "dark" ? "dark" : "light";
+  themeSelect.value = nextTheme;
+  document.body.classList.toggle("dark", nextTheme === "dark");
+  try {
+    localStorage.setItem("workoutTheme", nextTheme);
+  } catch (error) {
+    // ignore storage availability issues
+  }
+}
+
+themeSelect.addEventListener("change", () => applyTheme(themeSelect.value));
 themeSelect.addEventListener("change", () => {
   document.body.classList.toggle("dark", themeSelect.value === "dark");
 });
@@ -396,6 +408,18 @@ applyTemplateBtn.addEventListener("click", () => {
   if (!confirmTemplateOverwrite()) return;
   applyTemplate(splitDaySelect.value);
 });
+addExerciseBottomBtn.addEventListener("click", addExerciseToEnd);
+exportDataBtn.addEventListener("click", exportData);
+
+const savedTheme = (() => {
+  try {
+    return localStorage.getItem("workoutTheme");
+  } catch (error) {
+    return null;
+  }
+})();
+applyTheme(savedTheme || "light");
+
 addExerciseBtn.addEventListener("click", addExerciseToEnd);
 addExerciseBottomBtn.addEventListener("click", addExerciseToEnd);
 exportDataBtn.addEventListener("click", exportData);
