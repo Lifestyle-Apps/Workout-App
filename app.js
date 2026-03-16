@@ -104,6 +104,7 @@ const applyTemplateBtn = document.getElementById("applyTemplate");
 const workoutHeader = document.getElementById("workoutHeader");
 const durationHint = document.getElementById("durationHint");
 const exerciseSections = document.getElementById("exerciseSections");
+const addExerciseBtn = document.getElementById("addExercise");
 const addExerciseBottomBtn = document.getElementById("addExerciseBottom");
 const exportDataBtn = document.getElementById("exportData");
 const themeSelect = document.getElementById("themeSelect");
@@ -389,6 +390,9 @@ function applyTheme(theme) {
 }
 
 themeSelect.addEventListener("change", () => applyTheme(themeSelect.value));
+themeSelect.addEventListener("change", () => {
+  document.body.classList.toggle("dark", themeSelect.value === "dark");
+});
 
 customHeaderInput.addEventListener("input", updateHeader);
 splitDaySelect.addEventListener("change", () => {
@@ -415,6 +419,10 @@ const savedTheme = (() => {
   }
 })();
 applyTheme(savedTheme || "light");
+
+addExerciseBtn.addEventListener("click", addExerciseToEnd);
+addExerciseBottomBtn.addEventListener("click", addExerciseToEnd);
+exportDataBtn.addEventListener("click", exportData);
 
 updateHeader();
 applyTemplate();
