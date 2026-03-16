@@ -8,25 +8,14 @@
 </head>
 <body>
   <main class="app">
-    <section class="topbar">
-      <div>
-        <h1>Workout Tracker</h1>
-        <p class="subtitle">Plan, adjust, and log your session in one place.</p>
-      </div>
-      <div class="theme-select-wrap">
-        <label for="themeSelect">Theme</label>
-        <select id="themeSelect" aria-label="Theme">
-          <option value="light">Light</option>
-          <option value="dark">Dark</option>
-        </select>
-      </div>
-    </section>
+    <h1>Workout Tracker</h1>
+    <p class="subtitle">Plan, adjust, and log your session in one place.</p>
 
     <section class="controls card">
-      <label for="customHeader">Workout Name (optional)</label>
+      <label for="customHeader">Workout Header Name (optional)</label>
       <input id="customHeader" type="text" placeholder="Ex: Upper Body Power" />
 
-      <label for="splitDay">What are we hitting today?</label>
+      <label for="splitDay">Workout Split Day</label>
       <select id="splitDay" aria-label="Workout split day">
         <option value="Push Day">Push Day</option>
         <option value="Pull Day">Pull Day</option>
@@ -49,13 +38,10 @@
     <section class="card">
       <div class="table-top">
         <h3>Workout Sections</h3>
-        <button id="addExercise" type="button">+ Add Exercise</button>
+        <button id="addExercise" type="button">+ Add Exercise Section</button>
       </div>
-      <p class="muted">Each line is one set. Warm-up and working sets are color coded.</p>
+      <p class="muted">Each set is shown on its own line for easy tracking.</p>
       <div id="exerciseSections" class="exercise-sections"></div>
-      <div class="section-end-actions">
-        <button id="addExerciseBottom" type="button">+ Add Exercise</button>
-      </div>
       <p class="legend">
         <span class="swatch warmup"></span> Warm-up set
         <span class="swatch working"></span> Working set
