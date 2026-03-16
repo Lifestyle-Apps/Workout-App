@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workout Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <h1>Workout Tracker</h1>
+    <p class="subtitle">Plan, adjust, and log your session in one place.</p>
+
+    <section class="controls card">
+      <label for="customHeader">Workout Header Name (optional)</label>
+      <input id="customHeader" type="text" placeholder="Ex: Upper Body Power" />
+
+      <label for="splitDay">Workout Split Day</label>
+      <select id="splitDay" aria-label="Workout split day">
+        <option value="Push Day">Push Day</option>
+        <option value="Pull Day">Pull Day</option>
+        <option value="Leg Day">Leg Day</option>
+        <option value="Arms">Arms</option>
+        <option value="Upper Body">Upper Body</option>
+        <option value="Full Body">Full Body</option>
+        <option value="Conditioning">Conditioning</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <button id="applyTemplate" type="button">Apply Workout Template</button>
+    </section>
+
+    <section class="card header-preview">
+      <h2 id="workoutHeader">Push Day - 3/16</h2>
+      <p id="durationHint">Estimated duration: 50-60 minutes</p>
+    </section>
+
+    <section class="card">
+      <div class="table-top">
+        <h3>Workout Sections</h3>
+        <button id="addExercise" type="button">+ Add Exercise Section</button>
+      </div>
+      <p class="muted">Each set is shown on its own line for easy tracking.</p>
+      <div id="exerciseSections" class="exercise-sections"></div>
+      <p class="legend">
+        <span class="swatch warmup"></span> Warm-up set
+        <span class="swatch working"></span> Working set
+      </p>
+    </section>
+
+    <section class="card export-section">
+      <button id="exportData" type="button">Export Workout Data</button>
+      <p class="muted">Exports to JSON for easy transfer.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
